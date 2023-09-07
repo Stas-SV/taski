@@ -1,7 +1,10 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+
+load_dotenv()
 
 sentry_sdk.init(
     dsn="https://989fdaa4f58aa2a689ad2346e84a8988@o4505814040444928.ingest.sentry.io/4505814070132736",
@@ -20,7 +23,7 @@ SECRET_KEY = os.getenv('TOKEN', default='SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='ALLOW_HOSTS')
+ALLOWED_HOSTS = os.getenv(('ALLOWED_HOSTS'), default='127.0.0.1 localhost').split(' ')
 
 
 # Application definition
