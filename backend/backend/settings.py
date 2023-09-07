@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -19,7 +20,7 @@ SECRET_KEY = os.getenv('TOKEN', default='SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['oscartaski.myvnc.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='ALLOW_HOSTS')
 
 
 # Application definition
